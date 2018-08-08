@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '8'
+before_deploy:
+  - yarn run build
+  - npm version $TRAVIS_TAG --allow-same-version=true --git-tag-version=false
+deploy:
+  provider: npm
+  email: contact@louisbodart.fr
+  api_key:
+    secure: l4LWViMsT3fcUt9LQSPlsL0nkQ908E4Fbnf0CheQTeXi2bNeG7eJXCwlmUjtP/K+jGdEc270sbvYBrtHcf/SZUwFmlRzlYOlbyWwmioQS6rS3/55uieaJefhsSV9mH4G1diyX3MUmYuhIpl/voexScDwPirpCD4iS9ZDrFThe5ZL5IkVkqTkcK1A3HIt5/CLlX2CB369zZaTuzlSqXbGOJN/RGn5NN3z6BE7tB+3AnT/dE13Uk3dXysNPjAiSrnyyWLJ8jkqqWiT7HrrrMXN+tv4UXHYpax19WbefiUnG6KvdDEQKn2ROaKB8opXeu/ohrTvlPZ8F+6Np9OW+VVD+pA81U7DCnVkvcotJV84f+T/2ptZfIG7P+KNvAGWuMVeGOj1XSbbIytRpvByi36bJKqqDC64YGHJCHmXuxDZkI9OTIbns7G6PWY/gBmKbIzPv3YpgFdjCrmLoWYgo3jzUQfXuFrfTjkJyRhGgmLFIEiVeJzcQS4sFGAcFfSyTki7LceaX4cyXc0UMCDjj2jbJkKW1YlJ/0Cbr8KygGaxKfz5EZQU25XN/dtUswbbqb06WxrgBJtR7U3Ct5Ig0npHvkzL9Fon/LKtTs9z0dwICDOgbRQZBzw/fZQ0AjU9sRUynd4Ms6dAGRbpI8+GKTHDpdAIgj3EVL7DBHBumzqBtdI=
+  on:
+    branch: master
+    tags: true
+    repo: codeinbrain/slade
+  skip_cleanup: true
+  verbose: true

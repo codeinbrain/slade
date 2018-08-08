@@ -1,0 +1,39 @@
+{
+  "name": "slade",
+  "version": "0.0.1",
+  "description": "A basic RBAC system built for NodeJS API.",
+  "main": "build/lib/rbac.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "clean": "rm -rf build",
+    "build": "yarn run clean && babel -d ./build --ignore node_modules,*test ."
+  },
+  "repository": "https://github.com/codeinbrain/slade",
+  "author": "Louis BODART",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "build",
+    "LICENSE",
+    "README.MD"
+  ],
+  "jest": {
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "verbose": true,
+    "testURL": "http://localhost/"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
+    "jest": "^23.4.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "lodash": "^4.17.10"
+  }
+}
