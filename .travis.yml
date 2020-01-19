@@ -1,9 +1,11 @@
 language: node_js
 node_js:
-- '8'
+  - '8'
+script:
+  - yarn test
 before_deploy:
-- yarn run build
-- npm version $TRAVIS_TAG --allow-same-version=true --git-tag-version=false
+  - yarn run build
+  - npm version $TRAVIS_TAG --allow-same-version=true --git-tag-version=false
 deploy:
   provider: npm
   email: contact@louisbodart.fr
